@@ -216,5 +216,69 @@ type Type = {
 
 Alternatively use Record in TS
 
+================================
+
+Branded types in TypeScript are a pattern used to create distinct, semantically meaningful types from existing primitive types.
+
+enhances type safety by preventing values of one branded type from being accidentally used where another is expected at compile time.
+
+* Enhanced Type Safety:
+* Clarity and Readability
+
+```
+
+type UserId = string & { __brand: 'UserID' };
+type PostId = string & { __brand: 'PostID' };
+
+function getPostById(id: PostId) { /* ... */ }
+
+function getCommentsForPost(postId: PostId, authorId: UserId) { /* ... */ }
+
+const myUserId = "user-123" as UserId;
+const myPostId = "post-456" as PostId;
+
+getCommentsForPost(myPostId, myUserId); // Works
+
+
+```
+Comeback to Mapped Types in Typescript
+
+Generics:
+
+```
+    function filter<T>(elems: T[], predicateFn: (elem: T) => boolean) : T[] {
+        ///
+    }
+
+    let numbers: number[] = [6,1,3,8,9,2,11,24];
+
+    // T is a number
+    let result = filter(numbers, (no) => no % 2 === 0);
+
+    type Product = {id:number: title: string: category:string, price:number};
+    
+    let products: Product[] = [
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},  
+        {"id": 41, "title": "A", "category": "mobile", price: 5424.22},
+    ]
+
+    // T is treated as Product
+    let mobiles = filter(products, p => p.category === 'mobile');
+
+
+    function map<T, R>(elems: T[], transformFn: (elem: T) => R): R[] {
+        ...
+    }
+
+    // T is Product
+    // R is a string
+    // R[] is array of names
+    let names:string[] = map(products, p => p.name);
+
+```
 
 
