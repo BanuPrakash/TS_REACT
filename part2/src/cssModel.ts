@@ -4,14 +4,16 @@ type PositionType = 'top' | 'right' | 'left' | 'bottom';
 
 type GapCss = `${GapType}-${PositionType}` | GapType
 
-type SizeType = 'rem' | 'em' | 'px' | '%';
+type SizeType = 'rem' | 'em' | 'px' | '%' ;
 
 type SizeCss = `${number}${SizeType}`;
+type DoubleSizeCss = `${number}${SizeType} ${number}${SizeType}`;
 
 type MarginPadding = {
     [key in GapCss]?: SizeCss
 }
 
+// margin : '10px 20px'
 const margin : MarginPadding = {
     "margin": '10px',
     "margin-bottom" : '2%'

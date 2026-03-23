@@ -205,8 +205,16 @@ const data: Json = [{"name": "A", "age": 23}, {"name": "B", "age": 42}]
 
 Template Literal types: 
 Used to expand into many strings via unions
+==========
 
+Index Signatures and keyof:
+```
+type Type = {
+    [key: key_type]: return_type
+}
+```
 
+Alternatively use Record in TS
 
 
 
