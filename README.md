@@ -118,5 +118,58 @@ unknown: enforces typechecking before using it.
 
 let data:any = doTask(); // could be any JS function, could return JSON / string/ errorcode
 
+=======
+
+* We have more information about the type that TS can't know about.
+
+TypeAssertion aka TypeCasting
+TypePredicate
+
+==========
+
+5) type Type: for custom types, like struct of C
+To Provide shape of Object
+
+```
+    type Product = {
+        id: number,
+        name: string,
+        price?: number
+    }
+
+    function addProduct(product: Product) {
+        //
+    }
+    addProduct({"id": 52, "name": "Wacom", "price": 5460.11});
+
+    addProduct({"id": 52, "name": "Wacom" }); // VALID
+    
+* Type Intersection [&] like Specialization
+type Mobile = Product & {
+    connectivity: string
+}
+
+let m: Mobile = {"id": 52, "name": "MotoG", "price": 5460.11, "connectivity": "5G"}
+
+* Union Type [ | ]
+
+type Address  = string | string[];
+const myAddress: Address = "MG Road";
+const officeAddress = ["Lavelle Road", "Church street"];
+
+
+Note: prefer adding type definitions in a seperate file "types.d.ts"
+export type Product = {
+        id: number,
+        name: string,
+        price?: number
+}
+
+Usage:
+import {Product} from './types'
+
+ "skipLibCheck": true   
+```
+
 
 
