@@ -171,5 +171,42 @@ import {Product} from './types'
  "skipLibCheck": true   
 ```
 
+=============
+
+Recursive types in TypeScript are type definitions that reference themselves, allowing for the modeling of complex, nested, or hierarchical data structures like linked lists, trees, and JSON objects
+
+```
+type NestedArray = number[][][];
+Prefer:
+type NestedArray = number | NestedArray[];
+
+const data: NestedArray = [1,[2,3],[4,5], [6,7]]];
+
+type Json =
+
+  | string
+  | number
+  | boolean
+  | null
+  | Json[] // Array of Json
+  | { [key: string]: Json }; // Object with Json properties
+<!-- 
+Preffered
+type RestrictedJson = {
+    { [key: string]: Json }
+} -->
+const data: Json = "Hello";
+
+const data: Json = {"name": "A", "age": 23};
+const data: Json = [{"name": "A", "age": 23}, {"name": "B", "age": 42}]
+```
+
+======================
+
+Template Literal types: 
+Used to expand into many strings via unions
+
+
+
 
 
