@@ -282,3 +282,6 @@ Generics:
 ```
 
 
+Mapped Types: generic Type which uses a Union of Property keys to iterate thro keys and create a type.
+
+infer, class type, decorator, ...
