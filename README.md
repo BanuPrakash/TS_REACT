@@ -484,3 +484,118 @@ tasks.route.tsx is same as creating
 "tasks/route.tsx"
 
 ===========
+
+TanStack Query: Pending...
+
+=====
+
+React : Atomic Design
+Atoms: Basic building blocks of matter, such as button. input, image.
+Reusable components. Most of the time we use ready to use libraries like
+Adobe Web Components, React-bootstrap, KendoUI, PrimeReact, MUI
+
+Molecules: Grouping atoms together, like FORM component , Card
+
+Organisms: combining molecules: Like Navbar.
+
+Templates
+
+Page
+
+```
+    src
+        components
+            atoms
+            molecules
+            templates
+        pages
+```
+============================
+
+Using Functional Components of React:
+* hooks : to provide class capabilities to a functional components
+like state, life-cycle methods
+Available from React 16.8 version onwards
+General hooks:
+1) useState
+is a hook to introduce state varaible in functional component
+```
+App.tsx
+export default function App() {
+    let [name, setName] = useState<string>("");
+    let [age, setAge] = useState<number>(18);
+
+}
+
+export default class App extends Component {
+    state = {
+        name: string = "",
+        age: number = 18
+    }
+
+    setName(name) {
+        this.setState({
+            name
+        })
+    }
+
+    setAge(age) {
+        this.setState({
+            age
+        })
+    }
+}
+```
+2) useEffect
+is for side-effects, like making API calls
+
+```
+    useEffect(() => {
+        // code here gets called only once when first time 
+        // component is loaded
+        // write code to make API calls and pull the data
+        // called after first render
+    },[])
+
+    Example:
+    function App() {
+        let [users, setUsers] = useState<User[]>([]);
+
+        useEffect(() => {
+            fetch("https://api.com/users")
+            .then(response => response.json())
+            .then(data => setUsers(data));
+        }, [])
+        
+        return <div>
+            <h1>Hello Users </h1>
+            {
+                users.map(user => <div key={user.id}> {user.name} </div>)
+            }
+        </div>
+    }
+
+
+     useEffect(() => {
+        // code here gets called whenever name or age changes
+       
+    },[name, age])
+
+
+     useEffect(() => {
+            // do subscription, aPI call
+          
+            return () => {
+                // unmount code
+                // code here will execute before component is destroyed
+                // unsubscribe
+                }
+        }, [])
+        
+```
+3) useReducer
+4) useCallback
+5) useContext
+6) useRef
+
+
