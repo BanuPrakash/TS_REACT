@@ -326,3 +326,71 @@ TS Utilites based on Mapped Type and infer:
 4) NonNullable
 5) ReturnType
 
+===================
+
+Type interface:
+Prefer type over interface, but interface is specific to objects
+```
+    type Address = string; // valid
+    interface Address = string; // invalid
+
+    interface Product {
+        name: string,
+        price: number
+    }
+
+    interface Mobile extends Product {
+        connectivity: string
+    }
+
+    let mobile: Mobile = {"name": "A", price: 134, connectivity: "5G"};
+
+    Prefer interface for Realization relationship
+
+    interface Renderer {
+        render(): JSX
+    }
+
+    class DomRenderer implements Renderer {
+        ...
+        render():JSX {
+            ...
+        }
+    }
+
+    class TvRenderer implements Renderer {
+        ...
+        render(): JSX {
+
+        }
+    }
+```
+
+Decorators: Special kind of declaration that can be attached to a class, method, accessor and property.
+use the form @expression, @expression will be called at runtime
+-- MetaProgramming like Annotation of Java
+
+TypeScript 4: "experimentalDecorators"
+ "experimentalDecorators": true,  in tsconfig.json
+
+class Decorator
+
+function decorator(constructor: Function) {
+
+}
+
+Field Decorator:
+function (target: any, propertyKey:string) {
+
+}
+
+@Min
+price: number
+
+Method Decorator:
+function (target: any, methodName:string, descriptor?: PropertyDescriptor) {
+
+}
+
+TypeScript 5: no longer experimaentalDecorators
+
