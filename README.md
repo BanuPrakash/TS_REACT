@@ -373,6 +373,7 @@ use the form @expression, @expression will be called at runtime
 TypeScript 4: "experimentalDecorators"
  "experimentalDecorators": true,  in tsconfig.json
 
+```
 class Decorator
 
 function decorator(constructor: Function) {
@@ -392,5 +393,17 @@ function (target: any, methodName:string, descriptor?: PropertyDescriptor) {
 
 }
 
-TypeScript 5: no longer experimaentalDecorators
+```
+
+TypeScript 5: no need for  "experimentalDecorators": true,  
+
+aligns wiht ECMAScript State 3 proposal.
+
+```
+    function decoratorName(_: any, context:ClassDecoratorContext | ClassFieldDecoratorContext| ClassMethodDecoratorContext | ClassAccessorDecoratorContext) {}
+```
+
+Memoization is an optimization technique that speeds up programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again
+
+===================
 
