@@ -407,3 +407,76 @@ Memoization is an optimization technique that speeds up programs by storing the 
 
 ===================
 
+``` 
+    @Component({
+        template-url:..
+        selector: <app-product>
+    })
+    public class Product {
+
+    }
+
+    React appraoch
+    class Product extends Component {
+
+    }
+
+    Alternative: hooks
+
+    Mobx
+    @observable
+    public class Cart {
+
+        @action
+        addToCart(...) {
+
+        }
+    }
+
+```
+
+Using JS in TS ->
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i @types/underscore
+
+============================
+
+React:
+* TanStack Router instead of react-router-dom
+More than just a router.
+
+
+=========================
+
+TanStack router for existing application:
+npm i @tanstack/react-router
+
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  tanstack-router
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TanStack Router ↗ https://tanstack.com/router
+┌  Let's configure your TanStack application
+│
+◇  Select toolchain
+│  None
+│
+◇  Would you like to include demo/example pages?
+│  No
+
+```
+
+tasks.route.tsx is same as creating
+"tasks/route.tsx"

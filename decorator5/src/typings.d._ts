@@ -1,0 +1,3 @@
+declare module 'underscore' {
+    export function max(arg:any[], fn:(arg:any) => number);
+}
