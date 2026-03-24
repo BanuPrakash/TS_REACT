@@ -285,3 +285,44 @@ Generics:
 Mapped Types: generic Type which uses a Union of Property keys to iterate thro keys and create a type.
 
 infer, class type, decorator, ...
+
+=======================================
+
+Recap:
+TypeScript types:
+1) basic types: string, number and boolean
+2) enum
+3) any vs unknown
+4) The type : Shape of object, union, intersection
+5) generics
+6) MappedType: Iterate thro keys and create a new type like Immutable, Mutable, ReadOnly, ...
+7) Template literal string `` -> `${ChessLetter}${ChessNumbers}` -- 64 types, CSS Box Model
+
+Day 2:
+
+Conditional Types using Generics
+
+```
+    type NonNull<T> = T extends null | undefined ? never : T;
+
+    function addProduct(name: NonNull<string>) {
+
+    }
+
+    addProduct(null); // throws Error
+
+    let newName: NonNull<string> = "Smith";
+    addProduct(newName);
+```
+
+The infer keyword:
+Used within conditional type to extract "infer" a type from another type.
+Works with Conditional Type.
+
+TS Utilites based on Mapped Type and infer:
+1) Partial
+2) Pick
+3) Omit
+4) NonNullable
+5) ReturnType
+

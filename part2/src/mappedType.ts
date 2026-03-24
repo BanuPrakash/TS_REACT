@@ -49,3 +49,5 @@ function updateProduct(prd: OptProduct) {
 }
 
 updateProduct({"category": "GQA"});
+
+
