@@ -447,11 +447,13 @@ React:
 * TanStack Router instead of react-router-dom
 More than just a router.
 
+Similar to NextJS
 
 =========================
 
 TanStack router for existing application:
 npm i @tanstack/react-router
+
 
 ```
 npm create vite@latest
@@ -480,3 +482,5 @@ npm create vite@latest
 
 tasks.route.tsx is same as creating
 "tasks/route.tsx"
+
+===========
