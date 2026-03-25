@@ -599,3 +599,37 @@ is for side-effects, like making API calls
 6) useRef
 
 
+========
+
+Day 3:
+```
+npm create vite@latest ecomApp
+
+> npx
+> create-vite ecomApp
+
+│
+◇  Package name:
+│  ecomapp
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript
+│
+◇  Install with npm and start now?
+│  Yes
+
+npm i react-router-dom axios bootstrap react-bootstrap 
+
+```
+bootstrap CSS Framework 
+react-bootstrap -> for ready to use react components [atoms and molecules]
+axios instead of fetch for making API calls
+react-router-dom instead of TanStack Router [file based -routes]
+
+as={Link} --> instead of href for client-side routing
+href --> server side routing
+==================
+
