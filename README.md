@@ -687,3 +687,47 @@ Priororitize User events over rendering. Made possible using React Fiber Archite
 
 ```
 "allowJs": true,
+
+2) Form Handling:
+Upto React 18 we had two ways:
+1) Controlled Components:
+At any point of time React has the state of DOM element [ in this input]
+    ```
+        const [query, setQuery] = React.useState("");
+        <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Type something..." />
+    ```
+
+    Prefer this if you need immediate feedback
+    Cons: Too many Events, and re-rendering
+
+2) Uncontrolled Components:
+
+ DOM elements holds the values and not React
+    ```
+        function App() {
+            let emailRef = useRef();
+            let ageRef = useRef();
+
+            function doSubmit() {
+                let user = {
+                    email: emailRef.current.value,
+                    age: ageRef.current.value
+                }
+            }
+            return <>
+                    Email : <input type="text" ref={emailRef}/> <br />
+                    Age: <input type="number" ref={ageRef} /> <br />
+                    <button type="button" onClick={doSubmit}> Submit</button>
+            </>
+        }
+
+    ```
+
+New ways of Form Handling in React 18 and 19:
+1) useActionState
+useActionState is a React Hook that lets you update state with side effects using Actions.
+const [state, dispatchAction, isPending] = useActionState(reducerAction, initialState, permalink?);
