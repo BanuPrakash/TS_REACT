@@ -594,6 +594,16 @@ is for side-effects, like making API calls
         
 ```
 3) useReducer
+    to be used instead of useState:
+    if mutation is conditional
+    if mutation depends on previous state
+
+    userReducer uses reducer function.
+    reducer function takes(old_state, action) => return new state
+    Action Object has type of action and payload [ simple JSON]
+
+    dispatch({type:'ADD_TO_CART', payload: ...})
+    
 4) useCallback
 5) useContext
 6) useRef
@@ -633,3 +643,10 @@ as={Link} --> instead of href for client-side routing
 href --> server side routing
 ==================
 
+npm install
+npm run dev
+
+===========
+
+React Context:
+React Context is an API that allows you to share data and state across your entire component tree without passing props down manually at every level, a problem known as "prop drilling".
