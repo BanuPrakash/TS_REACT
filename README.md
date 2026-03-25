@@ -603,7 +603,7 @@ is for side-effects, like making API calls
     Action Object has type of action and payload [ simple JSON]
 
     dispatch({type:'ADD_TO_CART', payload: ...})
-    
+
 4) useCallback
 5) useContext
 6) useRef
@@ -650,3 +650,40 @@ npm run dev
 
 React Context:
 React Context is an API that allows you to share data and state across your entire component tree without passing props down manually at every level, a problem known as "prop drilling".
+
+
+
+CartList , increment, checkout for your task...
+
+========
+
+Context [ prefer only for avoiding props-drill, to a certain extent can be used for state managment in smaller application] 
+Context: is a part of react library
+
+vs Redux [state management in larger application, to avoid re-rendering]
+extra dependency
+Easy to debug compared to Context, Time-travel debugging
+Redux can be developed as a seperate libary and used along with any front-end technologies like Angular, React, Svelete, vanilla Js
+Best Solution for Micro-Frontend.
+
+================================
+
+more hooks:
+1) useDeffered:
+useDeferredValue is a React Hook that lets you defer updating a part of the UI.
+
+Priororitize User events over rendering. Made possible using React Fiber Architecture.
+
+```
+    function App() {
+        return <div>
+            <h1>Hello World</h1>
+            <section>
+                <button>Click</button>
+            </section>
+
+        </div>
+    }
+
+```
+"allowJs": true,
