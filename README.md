@@ -731,3 +731,15 @@ New ways of Form Handling in React 18 and 19:
 1) useActionState
 useActionState is a React Hook that lets you update state with side effects using Actions.
 const [state, dispatchAction, isPending] = useActionState(reducerAction, initialState, permalink?);
+
+2) useFormStatus
+useFormStatus is a Hook that gives you status information of the last form submission.
+This should be used/called from a component rendered within form. Get status from parent form
+
+3) useOptimistic is a React Hook that lets you optimistically update the UI.
+Update the UI before backend operation completes like Network request.
+
+===============
+
+TanStack Query, Server Actions and Server Components
+

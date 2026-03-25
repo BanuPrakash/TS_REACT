@@ -1,9 +1,17 @@
 import { useActionState } from "react";
 import  { loginUser, type LoginFailure, type LoginSuccess } from "../api/loginUser";
+import { useFormStatus } from "react-dom";
 
 type FormState = {
     error: string|null;
     data: LoginSuccess["data"] | null
+}
+
+const SubmitButton = () => {
+    const {pending} = useFormStatus(); 
+    return <button type="submit" disabled={pending}>
+                {pending ? "Logging in..." : "Login"}
+            </button>
 }
 
 export default function ActionStateComponent() {
@@ -45,9 +53,10 @@ export default function ActionStateComponent() {
                 </label>
                 <input type="password" name="password" required />
             </div>
-            <button type="submit" disabled={isPending}>
+            <SubmitButton />
+            {/* <button type="submit" disabled={isPending}>
                 {isPending ? "Logging in..." : "Login"}
-            </button>
+            </button> */}
         {state.error && <p style={{"color": 'red'}}>{state.error}</p>}
         {
             state.data && (
