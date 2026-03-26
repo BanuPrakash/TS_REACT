@@ -842,3 +842,36 @@ More control to decide what has to be low-priority computation
 In React 19, forwardRef is no longer necessary. Pass ref as a prop instead. forwardRef will be deprecated in a future release
 
 13) useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref.
+
+14) useLayoutEffect() can be used instead of useEffect() in case of scenario where we need to access such as reading DOM layout or measuring elements, before the browser repaints the screen
+
+Called after actual DOM render.
+
+```
+function Tooltip({ children }) {
+  const ref = useRef();
+  const [position, setPosition] = useState(0);
+
+  useLayoutEffect(() => {
+    // Measure DOM element synchronously
+    const { height } = ref.current.getBoundingClientRect();
+    setPosition(height);
+  }, []);
+
+  return  <div ref={ref} style={{ top: -position }}>{children}</div>;
+}
+```
+
+Pending : Server Side Component hooks
+
+Note: Hooks can be used only within functional components or other hooks, also can't be used inside a conditional statements. Always at the top level.
+
+use API: instead of useEffect() 
+use is a React API that lets you read the value of a resource like a Promise or context.
+can be used inside conditional statement, loops..
+
+npm i react-error-boundary
+
+Resume @ 11:25
+
+=====
