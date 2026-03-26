@@ -4,6 +4,7 @@ import NavbarComponent from './components/NavbarComponent';
 import DefferedDemo from './components/DeferredDemo';
 import ActionStateComponent from './components/ActionStateComponent';
 import OptimisticTodoList from './components/OptimisticTodoList';
+import Container from './components/ImperativeComponent';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/deffer" element={<DefferedDemo />} />
         <Route path="/actionState" element={<ActionStateComponent />} />
         <Route path="/opt" element={<OptimisticTodoList />} />
+        <Route path='/imperative' element={<Container />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </div>

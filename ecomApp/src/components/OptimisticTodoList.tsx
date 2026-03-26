@@ -16,11 +16,16 @@ export default function OptimisticTodoList() {
     const handleTodo = async(formData:FormData)  => {
         const newTodo = formData.get("todo") as string;
         setOptimisticTodo(newTodo);
-
+        try {
         // simulare API call
-        await new Promise( resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve, reject) => {
+             setTimeout(() => reject("Boom :-)"), 1000)
+        } );
 
         setTodos(currentTodos => [...currentTodos, {text: newTodo, pending: false}]);
+        } catch(error) {
+
+        }
     }
 
   return (

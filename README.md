@@ -741,5 +741,104 @@ Update the UI before backend operation completes like Network request.
 
 ===============
 
-TanStack Query, Server Actions and Server Components
 
+Day 4:
+
+Recap:
+```
+    TypeScript
+    React using TypeScript
+    TanStack Router: File Based Router [ keeping in sync with future applications like NextJS]
+    EcomApp: react-router-dom [instead of TanStack Router] - BrowserRouter, Routes, Route, Link for client side routing instead of using href, MUI / react-bootstrap, adobe web spectrum web components
+
+React Hooks:
+1) useState
+2) useEffect: 
+    2.1) componentDidMount -- gets called after first render, most likely place for API calls
+    useEffect(() => {}, [])
+    2.2) componentDidUpdate -- gets called when state or props change
+    useEffect(() => {}, [dep1, dep2, ...])
+3) useReducer - if state mutation is complex, conditionally mutate a state, mutation depends on previous state
+    uses a reducer function: (state, action) => newState [note newState is done on a clone]
+4) useRef : create a reference and attack it to a DOM element / component
+    let nameRef = useRef(null);
+    let cardRed = useRef(null);
+    <input type="text" ref={nameRef} />
+
+    <Card ref={cardRef}>
+
+    </Card>
+5) useContext: Context - central placeholder of data used to prevent props-drill
+useContext acts like a Consumer
+simplified code:
+<CartContext.Consumer>
+    {
+        value => {
+            return <div>
+                {value.quantity}
+            </div>
+        }
+    }
+</CartContext.Consumer>
+
+let {quantity} = useContext(CartContext);
+6) useActionState
+    isPending
+7) useFormStatus: pending
+    Child Component gets the pending status from the enclosing <form> of Parent
+8) useOptimistic: update UI optimistically before data is persisted on Server 
+    In case if Server action fails, useOptimistic will revert back to previous state
+9) useDefferedValue: Making use of React 18 concurrency architecture [ fiber based]
+    Make User interaction always responsive
+```
+
+===========
+
+10) useCallback: to memoize a function
+```
+    function App() {
+        let [name, setName] = useState("");
+        let [age, setAge] = useState(18);
+        // memorize the function definition
+        let modify = useCallback(() =>  {
+            ..
+        },[age]);
+        return <Child name={name} modifyRef={modify} />
+    }
+
+    Child.tsx
+    function Child({age, modifyRef}) {
+        return <>
+            Age = {age} <br/>
+            <button onClick={modifyRef}>Modify</button>
+        </>
+    }
+    export default memo(Child);
+```
+
+11) useTransition : instead of useDefferedValue
+useTransition is a React Hook that lets you render a part of the UI in the background.
+More control to decide what has to be low-priority computation
+
+```
+    function App() {
+        const[isPending, startTranstion] = useTranstion();
+        const [search, setSearch] = useState();
+        function handleSearch(txt) {
+            setSearch(txt);
+            // any other activities
+            startTransition(() => {
+                // any expenisive code
+                // like pulling from Backend
+            })
+        }
+    return <div>
+        {search} 
+    </div>
+```
+
+12) forwardRef: is deprecated in React 19, instead pass "ref" as a prop 
+
+In React 19, forwardRef is no longer necessary. Pass ref as a prop instead. forwardRef will be deprecated in a future release
+
+13) useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref.
