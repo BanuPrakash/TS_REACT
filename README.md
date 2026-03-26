@@ -898,3 +898,12 @@ tanstack-example> npm i @tanstack/react-query @tanstack/react-query-devtools
 
 ```
 
+Running a Query after first Query is done.
+Parallel Queuries. [useQueries]
+Infinite Queuries: useInfiniteQuery, InfiniteData
+Try with intersection observer.
+
+
+=======
+
+
