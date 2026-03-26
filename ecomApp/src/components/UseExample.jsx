@@ -7,11 +7,13 @@ export default function UseExample({fetchPosts}) {
     const posts = use(fetchPosts); 
     return (
         <div>
-            {posts.map((post) => (
+            {
+            posts.map((post) => (
                 <div key={post.id}>
                         <h2>{post.title}</h2>
                 </div>
-            )}
+            ))
+        }
         </div>
     )
 }

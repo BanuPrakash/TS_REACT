@@ -872,6 +872,29 @@ can be used inside conditional statement, loops..
 
 npm i react-error-boundary
 
-Resume @ 11:25
+========
 
-=====
+TanStack Query --> react query
+
+Powerful data-fetching library, features like fetching, caching, synchronizing, parallel queries, lining of query, infinite queries.
+
+=================
+
+```
+npm create vite@latest tanstack-example
+
+> npx
+> create-vite tanstack-example
+
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript
+
+Add TanStack dependencies
+tanstack-example> npm i @tanstack/react-query @tanstack/react-query-devtools
+
+```
+
