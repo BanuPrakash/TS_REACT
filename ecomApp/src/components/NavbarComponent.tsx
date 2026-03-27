@@ -5,10 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { Badge } from 'react-bootstrap';
 import { useContext } from 'react';
-import { CartContext } from '../context/CartContextProvider';
+import { useAppSelector } from '../redux/store';
+// import { CartContext } from '../context/CartContextProvider';
 
 export default function NavbarComponent() {
-  let {quantity} = useContext(CartContext);
+  // let {quantity} = useContext(CartContext);
+  
+   let {quantity} = useAppSelector(state => state.cart);
+
   return (  
      <Navbar bg="dark" data-bs-theme="dark">
         <Container>

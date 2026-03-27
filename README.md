@@ -1015,5 +1015,32 @@ npm create vite@latest
  
 ```
 
+Add State Management to EcomApp using RTK
+ecomapp % npm install @reduxjs/toolkit react-redux
 
+```
+
+const initialState = { value: 0 } 
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.value++
+    },
+    decrement: (state, action) => {
+      state.value+= action.payload
+    }
+  },
+})
+
+export const { increment, decrement } = counterSlice.actions
+export default counterSlice.reducer
+
+```
+
+useSelector: The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+useDispatch: The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
 
