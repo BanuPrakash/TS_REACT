@@ -903,7 +903,114 @@ Parallel Queuries. [useQueries]
 Infinite Queuries: useInfiniteQuery, InfiniteData
 Try with intersection observer.
 
-
 =======
+Day 5: 
 
+```
+    useCallback(), use() API instead of useEffect, useTransition() to customize which part of code has to be low-priority [ setTransition]
+    TanStack Query: fetching, lodaing data after first API call is done, parallel, caching, invalidate, InfiniteData
+```
 
+Redux : Predicatable State Managment
+
+React Context: meant to avoid props-drill, just like a central placeholder for data, and nth level consumer and directly access it without passing props thro intermediary component.
+Context can be used for State managment is small to medium size applicaitions where we less state to maange.
+
+```
+Core Differences
+1) Context API	
+Type	Built-in React feature	External library
+Minimal setup
+Simple, low-frequency updates 
+Performance	Can cause unnecessary re-renders for all consumers when the context value changes	
+
+2) Redux
+Requires initial setup and more boilerplate
+Complex, high-frequency updates (e.g., e-commerce cart, data fetching)
+Optimizes re-renders so only components using the changed state update.
+Debugging using React DevTools	Powerful "time-travel debugging" with the Redux DevTools extension, tracing all state changes over time.
+Extensive middleware ecosystem for side effects (e.g., API calls, logging)
+* Can be built as seperate libary by the team who has no clue of UI, later that libary can be integrated with any UI library or framework like React, Vue, Svelete, Angular, Vanilla JS
+* Can be used as Global Store for MicroFront End application [ remote]
+```
+
+Facebook team initailly was using MVC pattern for state managment [ View updates the model, one model updates another model. Whenever Model changes view gets a notification]
+Flux Architecture: supports uni-directional data flow, state in store can only be modified by dispatching an action. Store was made as Event Emitter
+
+```
+    class CartStore extends EventEmitter {
+        ...
+        addToCart(cartItem) {
+            ///
+            event.emit("CART_ITEM_ADDED");
+        }
+    }
+
+```
+
+Redux, Mobx started using this base and build on top it.
+
+https://www.youtube.com/watch?v=8pDqJVdNa44&t=4458s
+
+=================================
+
+Legacy Redux vs RTK.
+
+```
+{
+    "profile": {
+        avatar: 'banu.png',
+        displayName: 'Banu Prakash'
+    },
+    cart: {
+        cartItems: [...],
+        qty: 3,
+        total: 4335242
+    },
+    ..
+
+}
+
+connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
+
+// state is from redux store
+function mapStateToProps(state) {
+    return {
+        pic: state.profile.avatar,
+        products: state.cart.cartItems
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addCart: prod => dispatch({type:'ADD_TO_CART', payload: prod}),
+        clearCart: () => dispatch({type: 'CLEAR_CART}),
+        changePic: pic => dispatcH({type:'CHANGE_PIC', payload: pic})
+    }
+}
+
+```
+
+Redux Example:
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  redux-example
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+
+ redux-example % npm i redux react-redux
+ 
+```
