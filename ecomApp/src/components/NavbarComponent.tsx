@@ -19,7 +19,7 @@ export default function NavbarComponent() {
           <Navbar.Brand href="#home">Shopify</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Products</Nav.Link>
-            <Nav.Link as={Link} to="/">Cart <Badge>{quantity}</Badge></Nav.Link>
+            <Nav.Link as={Link} to="/cart">Cart <Badge>{quantity}</Badge></Nav.Link>
             <Nav.Link as={Link} to="/deffer">useDeffered</Nav.Link>
             <Nav.Link as={Link} to="/actionState">useActionState</Nav.Link>
              <Nav.Link as={Link} to="/opt">Optimistic Updates!!!</Nav.Link>
