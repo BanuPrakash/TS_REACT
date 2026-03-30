@@ -1044,3 +1044,44 @@ useSelector: The selector is approximately equivalent to the mapStateToProps arg
 
 useDispatch: The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
 
+============
+
+Recap:
+1) TypeScript
+2) React with Hooks and TypeScript
+3) TanStack Router and Query
+4) react-router-dom
+5) Context: to avoid props-drill, but can also be used for state management in smaller application
+6) Flux Architecure: Action -> Dispatch --> Store -> mutates the state and emits an event. View are listeners for the given event.
+7) Redux: based on Flux Architecture:
+- Store: Single Store per application [ Source of Truth]
+store manages the state.
+Reducer: functions which take the prev state and action, clones the state, mutates and returns back the new state.
+Root Reducer: combines all reducers. Store communicates with Root reducer.
+8) connect() from react-redux to integrate react with redux.
+mapStateToProps: take state from redux store and pass it as props to component [react]
+mapDispatchToProps: pass a function as props to react, using which it dispatches an action to redux store.
+
+9) Redux Toolkit: simplified the way we use Redux.
+    configureStore instead of createState() -> Opiniated, configures DEVTOOLS, .. out of the box.
+    directly we can write root reducer here.
+    createSlice: for every action write reducer fn inline
+    Immutable logic is taken care.
+
+    * useSelector hook - mapStateToProps
+    * useDispatch hook - mapDispatchToProps
+
+    Redux instead of Context:
+    * Time Travel debugging
+    * No unneccessary rerendering of components
+    * Works well for larger applications
+    * Can be configured as global store in MicroFront application
+==========
+Redux required if we need state management in client like: Cart, Multi-stage processing of FORM 
+RTK Query: can be used instead of TanStack Query 
+Data fetching, caching, pagination, ...
+
+createApi is the core of RTK Query's functionality. It allows you to define a set of "endpoints" that describe how to retrieve data from backend APIs and other async sources, including the configuration of how to fetch and transform that data.
+createApi generates hooks.
+
+============
