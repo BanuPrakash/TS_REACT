@@ -1099,4 +1099,9 @@ NextJS, Remix, Gatsby
 
 =============
 
-Resume @ 11:05
+SSR and Streaming content
+
+```
+    npm create next-app@latest
+```
+
