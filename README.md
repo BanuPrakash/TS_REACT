@@ -1084,4 +1084,19 @@ Data fetching, caching, pagination, ...
 createApi is the core of RTK Query's functionality. It allows you to define a set of "endpoints" that describe how to retrieve data from backend APIs and other async sources, including the configuration of how to fetch and transform that data.
 createApi generates hooks.
 
+Every 3 seconds get data from API endpoints and update the cache
+const  {data} = useProductQuery(id, {
+    pollingInterval: 3000
+})
 ============
+
+Redux can be used as global store in MicroFrontend using Module federation of Vite Federation Plugin.
+
+==========
+
+Client Side Rendering and Server side Rendering:
+NextJS, Remix, Gatsby
+
+=============
+
+Resume @ 11:05

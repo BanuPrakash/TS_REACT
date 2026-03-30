@@ -17,7 +17,10 @@ export default function ProductList() {
 
   // isLoading: when data is fetching for first time
   // isFetching: may be cached
-  const {data: products, isLoading, isFetching, isSuccess, isError} = useProductsQuery();
+  const {data: products, isLoading, isFetching, isSuccess, isError, refetch} = useProductsQuery();
+  function reload() {
+    refetch();
+  }
   return (
     <Container>
       <div className='row'> 
